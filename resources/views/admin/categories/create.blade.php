@@ -47,15 +47,25 @@
 
                     <div class="col-12">
 
-                        <form action="#" class="w-25">
+                        <form action="{{route('admin.category.store')}}" class="w-25" method="POST">
+
+                            @csrf
 
                             <div class="form-group">
 
-                                <label>Заголовок</label>
+                                <input type="text" name="title" class="form-control" placeholder="Введите заголовок">
 
-                                <input type="text" class="form-control mb-3" placeholder="Введите заголовок">
+                                @error('title')
 
-                                <input type="submit" class="btn btn-primary" value="Добавить">
+                                    <div class="text-danger">
+
+                                        {{$message}}
+
+                                    </div>
+
+                                @enderror
+
+                                <input type="submit" class="btn btn-primary mt-3" value="Добавить">
 
                             </div>
 
