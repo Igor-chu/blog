@@ -14,7 +14,7 @@
 
                     <div class="col-sm-6">
 
-                        <h1 class="m-0">Dashboard</h1>
+                        <h1 class="m-0">{{__('Список категорий')}}</h1>
 
                     </div><!-- /.col -->
 
@@ -22,9 +22,9 @@
 
                         <ol class="breadcrumb float-sm-right">
 
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a href="#">{{__('Админ')}}</a></li>
 
-                            <li class="breadcrumb-item active">Dashboard v1</li>
+                            <li class="breadcrumb-item active">{{__('Список категорий')}}</li>
 
                         </ol>
 
@@ -47,13 +47,42 @@
 
                     <div class="col-2">
 
-                        <a href="{{route('admin.category.create')}}" class="btn btn-block btn-primary">Добавить</a>
+                        <a href="{{route('admin.category.create')}}" class="btn btn-block btn-primary mb-3">Добавить</a>
 
                     </div>
 
-                    <div class="col-12">
+                </div>
 
-                        {{__('Категории')}}
+                <div class="row">
+
+                    <div class="col-6">
+
+                        <div class="card">
+
+                            <div class="card-body table-responsive p-0">
+                                <table class="table table-hover text-nowrap">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Название</th>
+                                            <th>Количество постов</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                    @foreach($categories as $category)
+                                        <tr>
+                                            <td>{{$category->id}}</td>
+                                            <td>{{$category->title}}</td>
+                                            <td>{{random_int(5, 50)}}</td>
+                                        </tr>
+                                    @endforeach
+
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.card-body -->
+                        </div>
 
                     </div>
 
