@@ -12,9 +12,15 @@
 
                 <div class="row mb-2">
 
-                    <div class="col-sm-6">
+                    <div class="col-sm-6 d-flex align-items-center">
 
-                        <h1 class="m-0">{{$category->title}}</h1>
+                        <h1 class="m-0 mr-2">{{$category->title}}</h1>
+
+                        <a href="{{route('admin.category.edit', $category->id)}}" class="text-success">
+
+                            <i class="fas fa-pencil-alt"></i>
+
+                        </a>
 
                     </div><!-- /.col -->
 

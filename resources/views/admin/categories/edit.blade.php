@@ -14,7 +14,7 @@
 
                     <div class="col-sm-6">
 
-                        <h1 class="m-0">{{__('Добавление категории')}}</h1>
+                        <h1 class="m-0">{{__('Редактирование категории')}}</h1>
 
                     </div><!-- /.col -->
 
@@ -22,9 +22,9 @@
 
                         <ol class="breadcrumb float-sm-right">
 
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a href="#">{{__('Админ')}}</a></li>
 
-                            <li class="breadcrumb-item active">Dashboard v1</li>
+                            <li class="breadcrumb-item active">{{__('Редактирование категории')}}</li>
 
                         </ol>
 
@@ -47,13 +47,14 @@
 
                     <div class="col-12">
 
-                        <form action="{{route('admin.category.store')}}" class="w-25" method="POST">
+                        <form action="{{route('admin.category.update', $category->id)}}" class="w-25" method="POST">
 
                             @csrf
+                            @method('patch')
 
                             <div class="form-group">
 
-                                <input type="text" name="title" class="form-control" placeholder="Введите заголовок">
+                                <input type="text" name="title" class="form-control" placeholder="Введите заголовок" value="{{$category->title}}">
 
                                 @error('title')
 
@@ -65,14 +66,13 @@
 
                                 @enderror
 
-                                <input type="submit" class="btn btn-success mt-3 mr-3" value="Добавить">
+                                <input type="submit" class="btn btn-success mt-3 mr-3" value="Обновить">
 
                                 <a href="{{route('admin.category.index')}}" class="btn btn-primary mt-3">Назад</a>
 
                             </div>
 
                         </form>
-
 
                     </div>
 
