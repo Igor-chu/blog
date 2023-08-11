@@ -53,7 +53,7 @@
 
                             <div class="form-group">
 
-                                <input type="text" name="title" class="form-control" placeholder="Введите заголовок">
+                                <input type="text" name="title" class="form-control" placeholder="Введите название категории">
 
                                 @error('title')
 
