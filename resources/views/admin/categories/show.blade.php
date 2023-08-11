@@ -16,11 +16,24 @@
 
                         <h1 class="m-0 mr-2">{{$category->title}}</h1>
 
-                        <a href="{{route('admin.category.edit', $category->id)}}" class="text-success">
+                        <a href="{{route('admin.category.edit', $category->id)}}" class="text-success mr-2">
 
                             <i class="fas fa-pencil-alt"></i>
 
                         </a>
+
+                        <form action="{{route('admin.category.delete', $category->id)}}" method="POST">
+
+                            @csrf
+                            @method('delete')
+
+                            <button type="submit" class="border-0">
+
+                                <i class="fas fa-trash text-danger" role="button"></i>
+
+                            </button>
+
+                        </form>
 
                     </div><!-- /.col -->
 

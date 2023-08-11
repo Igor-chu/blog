@@ -43,6 +43,8 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin'],
 //
         Route::patch('/{category}', 'UpdateController')->name('admin.category.update');
 
+        Route::delete('/{category}', 'DestroyController')->name('admin.category.delete');
+
     });
 
 });
