@@ -14,7 +14,7 @@
 
                     <div class="col-sm-6">
 
-                        <h1 class="m-0">{{__('Список категорий')}}</h1>
+                        <h1 class="m-0">{{$category->title}}</h1>
 
                     </div><!-- /.col -->
 
@@ -24,7 +24,7 @@
 
                             <li class="breadcrumb-item"><a href="#">{{__('Админ')}}</a></li>
 
-                            <li class="breadcrumb-item active">{{__('Список категорий')}}</li>
+                            <li class="breadcrumb-item active">{{__('Просмотр категории')}}</li>
 
                         </ol>
 
@@ -47,7 +47,7 @@
 
                     <div class="col-2">
 
-                        <a href="{{route('admin.category.create')}}" class="btn btn-block btn-primary mb-3">Добавить</a>
+                        <a href="{{route('admin.category.index')}}" class="btn btn-block btn-primary mb-3">Назад</a>
 
                     </div>
 
@@ -61,28 +61,18 @@
 
                             <div class="card-body table-responsive p-0">
                                 <table class="table table-hover text-nowrap">
-                                    <thead>
-                                        <tr>
-                                            <th>ID</th>
-                                            <th>Название</th>
-                                            <th>Действие</th>
-                                        </tr>
-                                    </thead>
                                     <tbody>
-
-                                    @foreach($categories as $category)
                                         <tr>
+                                            <td>ID</td>
                                             <td>{{$category->id}}</td>
-                                            <td>{{$category->title}}</td>
-                                            <td>
-                                                <a href="{{route('admin.category.show', $category->id)}}">
 
-                                                    <i class="far fa-eye"></i>
-
-                                                </a>
-                                            </td>
                                         </tr>
-                                    @endforeach
+
+                                        <tr>
+                                            <td>Название</td>
+                                            <td>{{$category->title}}</td>
+                                          </tr>
+
 
                                     </tbody>
                                 </table>
