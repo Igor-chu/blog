@@ -109,7 +109,6 @@
                                 </div>
 
                                 <div class="form-group">
-                                    {{old('category_id')}}
                                     <label>Выберите категорию</label>
                                     <select name="category_id" class="form-control">
                                         @foreach($categories as $category)
@@ -126,6 +125,19 @@
                                     </div>
                                     @enderror
 
+                                </div>
+
+                                <div class="form-group">
+                                    <label>Теги</label>
+                                    <select class="select2 form-control" name="tag_ids[]" multiple="multiple" data-placeholder="Выберите теги" style="width: 100%;">
+
+                                        @foreach($tags as $tag)
+
+                                            <option {{is_array(old('tag_ids')) && in_array($tag->id, old('tag_ids')) ? 'selected' : ''}} value="{{$tag->id}}">{{$tag->title}}</option>
+
+                                        @endforeach
+
+                                    </select>
                                 </div>
 
                                 <div class="form-group">
