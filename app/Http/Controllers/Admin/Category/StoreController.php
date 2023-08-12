@@ -14,8 +14,6 @@ class StoreController extends Controller
 
         $category = Category::query()->firstOrCreate($data);
 
-//        dd($category);
-
         return redirect()->route('admin.category.index');
     }
 }
