@@ -60,93 +60,99 @@
                                     </div>
                                 @enderror
 
-                                <div class="form-group mt-3">
+                            </div>
 
-                                    <textarea id="summernote" name="content" class="form-control">{{old('content')}}</textarea>
+                            <div class="form-group mt-3">
 
-                                    @error('content')
-                                        <div class="text-danger m-0">
-                                            {{$message}}
-                                        </div>
-                                    @enderror
+                                <textarea id="summernote" name="content" class="form-control">{{old('content')}}</textarea>
 
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="exampleInputFile">Добавить превью</label>
-                                    <div class="input-group">
-                                        <div class="custom-file">
-                                            <input type="file" name="preview_image" class="custom-file-input" value="{{old('preview_image')}}">
-                                            <label class="custom-file-label">Выберите изображение</label>
-                                        </div>
-                                        <div class="input-group-append">
-                                            <span class="input-group-text">Загрузка</span>
-                                        </div>
-                                    </div>
-                                    @error('preview_image')
+                                @error('content')
                                     <div class="text-danger m-0">
                                         {{$message}}
                                     </div>
-                                    @enderror
-                                </div>
+                                @enderror
 
-                                <div class="form-group">
-                                    <label for="exampleInputFile">Добавить главное изображение</label>
-                                    <div class="input-group">
-                                        <div class="custom-file">
-                                            <input type="file" name="main_image" class="custom-file-input" value="{{old('main_image')}}">
-                                            <label class="custom-file-label">Выберите изображение</label>
-                                        </div>
-                                        <div class="input-group-append">
-                                            <span class="input-group-text">Загрузка</span>
-                                        </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputFile">Добавить превью</label>
+                                <div class="input-group">
+                                    <div class="custom-file">
+                                        <input type="file" name="preview_image" class="custom-file-input" value="{{old('preview_image')}}">
+                                        <label class="custom-file-label">Выберите изображение</label>
                                     </div>
-                                    @error('main_image')
-                                    <div class="text-danger m-0">
-                                        {{$message}}
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">Загрузка</span>
                                     </div>
-                                    @enderror
                                 </div>
+                                @error('preview_image')
+                                <div class="text-danger m-0">
+                                    {{$message}}
+                                </div>
+                                @enderror
+                            </div>
 
-                                <div class="form-group">
-                                    <label>Выберите категорию</label>
-                                    <select name="category_id" class="form-control">
-                                        @foreach($categories as $category)
-                                            <option
-                                                {{(old('category_id') == $category->id ) ? 'selected' : ''}}
-
-                                                value="{{$category->id}}">{{$category->title}}</option>
-                                        @endforeach
-                                    </select>
-
-                                    @error('category_id')
-                                    <div class="text-danger m-0">
-                                        {{$message}}
+                            <div class="form-group">
+                                <label for="exampleInputFile">Добавить главное изображение</label>
+                                <div class="input-group">
+                                    <div class="custom-file">
+                                        <input type="file" name="main_image" class="custom-file-input" value="{{old('main_image')}}">
+                                        <label class="custom-file-label">Выберите изображение</label>
                                     </div>
-                                    @enderror
-
+                                    <div class="input-group-append">
+                                        <span class="input-group-text">Загрузка</span>
+                                    </div>
                                 </div>
-
-                                <div class="form-group">
-                                    <label>Теги</label>
-                                    <select class="select2 form-control" name="tag_ids[]" multiple="multiple" data-placeholder="Выберите теги" style="width: 100%;">
-
-                                        @foreach($tags as $tag)
-
-                                            <option {{is_array(old('tag_ids')) && in_array($tag->id, old('tag_ids')) ? 'selected' : ''}} value="{{$tag->id}}">{{$tag->title}}</option>
-
-                                        @endforeach
-
-                                    </select>
+                                @error('main_image')
+                                <div class="text-danger m-0">
+                                    {{$message}}
                                 </div>
+                                @enderror
+                            </div>
 
-                                <div class="form-group">
+                            <div class="form-group">
+                                <label>Выберите категорию</label>
+                                <select name="category_id" class="form-control">
+                                    @foreach($categories as $category)
+                                        <option
+                                            {{(old('category_id') == $category->id ) ? 'selected' : ''}}
 
-                                    <input type="submit" class="btn btn-success mt-3 mr-3" value="Добавить">
+                                            value="{{$category->id}}">{{$category->title}}</option>
+                                    @endforeach
+                                </select>
 
-                                    <a href="{{route('admin.post.index')}}" class="btn btn-primary mt-3">Назад</a>
-
+                                @error('category_id')
+                                <div class="text-danger m-0">
+                                    {{$message}}
                                 </div>
+                                @enderror
+
+                            </div>
+
+                            <div class="form-group">
+                                <label>Теги</label>
+                                <select class="select2 form-control" name="tag_ids[]" multiple="multiple" data-placeholder="Выберите теги" style="width: 100%;">
+
+                                    @foreach($tags as $tag)
+
+                                        <option {{is_array(old('tag_ids')) && in_array($tag->id, old('tag_ids')) ? 'selected' : ''}} value="{{$tag->id}}">{{$tag->title}}</option>
+
+                                    @endforeach
+
+                                </select>
+
+                                @error('tag_ids')
+                                <div class="text-danger m-0">
+                                    {{$message}}
+                                </div>
+                                @enderror
+                            </div>
+
+                            <div class="form-group">
+
+                                <input type="submit" class="btn btn-success mt-3 mr-3" value="Добавить">
+
+                                <a href="{{route('admin.post.index')}}" class="btn btn-primary mt-3">Назад</a>
 
                             </div>
 

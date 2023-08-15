@@ -149,8 +149,13 @@
                                             <option {{is_array($post->tags->pluck('id')->toArray()) && in_array($tag->id, $post->tags->pluck('id')->toArray()) ? 'selected' : ''}} value="{{$tag->id}}">{{$tag->title}}</option>
 
                                         @endforeach
-
                                     </select>
+
+                                    @error('tag_ids')
+                                    <div class="text-danger m-0">
+                                        {{$message}}
+                                    </div>
+                                    @enderror
                                 </div>
 
                                 <div class="form-group">
