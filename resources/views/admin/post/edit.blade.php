@@ -81,7 +81,6 @@
                                         <img src="{{asset('storage/' . $post->preview_image)}}" alt="preview_image" class="w-25 mb-3">
                                     </div>
                                     <div class="input-group">
-                                        {{dump($post->preview_image)}}
                                         <div class="custom-file">
                                             <input type="file" name="preview_image" class="custom-file-input" value="{{asset('storage/' . $post->preview_image)}}">
                                             <label class="custom-file-label">Выберите изображение</label>
