@@ -75,6 +75,29 @@
                             </div>
 
                             <div class="form-group">
+                                <label>Выберите роль</label>
+                                <select name="role" class="form-control">
+                                    @foreach($roles as $id => $role)
+                                        <option
+
+                                            {{$id == $user->role ? 'selected' : ''}}
+                                            value="{{$id}}">{{$role}}</option>
+
+                                    @endforeach
+                                </select>
+
+                                @error('role')
+                                <div class="text-danger m-0">
+                                    {{$message}}
+                                </div>
+                                @enderror
+                            </div>
+
+                            <div class="form-group">
+                                <input type="hidden" name="user_id" value="{{$user->id}}">
+                            </div>
+
+                            <div class="form-group">
                                 <input type="submit" class="btn btn-success mt-3 mr-3" value="Обновить">
 
                                 <a href="{{route('admin.user.index')}}" class="btn btn-primary mt-3">Назад</a>
