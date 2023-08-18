@@ -41,9 +41,11 @@
 
                         <ol class="breadcrumb float-sm-right">
 
-                            <li class="breadcrumb-item"><a href="#">{{__('Админ')}}</a></li>
+                            <li class="breadcrumb-item"><a href="{{route('admin.main.index')}}">{{__('Главная')}}</a></li>
 
-                            <li class="breadcrumb-item active">{{__('Просмотр пользователя')}}</li>
+                            <li class="breadcrumb-item"><a href="{{route('admin.user.index')}}">{{__('Пользователи')}}</a></li>
+
+                            <li class="breadcrumb-item active">{{$user->name}}</li>
 
                         </ol>
 

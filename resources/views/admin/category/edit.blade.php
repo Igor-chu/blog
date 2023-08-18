@@ -22,9 +22,11 @@
 
                         <ol class="breadcrumb float-sm-right">
 
-                            <li class="breadcrumb-item"><a href="#">{{__('Админ')}}</a></li>
+                            <li class="breadcrumb-item"><a href="{{route('admin.main.index')}}">Главная</a></li>
 
-                            <li class="breadcrumb-item active">{{__('Редактирование категории')}}</li>
+                            <li class="breadcrumb-item"><a href="{{route('admin.category.index')}}">Категории</a></li>
+
+                            <li class="breadcrumb-item active">{{$category->title}}</li>
 
                         </ol>
 
