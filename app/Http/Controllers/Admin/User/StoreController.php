@@ -23,7 +23,7 @@ class StoreController extends Controller
 
         $user = User::query()->firstOrCreate(['email' => $data['email']], $data);
 
-        Mail::to($data['email'])->send(new PasswordMail($password));
+        Mail::to($data['email'])->send(new PasswordMail($password, $data['email']));
 
         event(new Registered($user));
 
