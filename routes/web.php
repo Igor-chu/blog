@@ -105,5 +105,34 @@ Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin', 
 
 });
 
+
+
+
+Route::group(['namespace' => 'App\Http\Controllers\Personal', 'prefix' => 'personal', 'middleware' => ['auth', 'verified']], function () {
+
+    Route::group(['namespace' => 'Main'], function(){
+
+        Route::get('/', 'IndexController')->name('personal.main.index');
+
+    });
+
+    Route::group(['namespace' => 'Liked', 'prefix' => 'liked'], function (){
+
+        Route::get('/', 'IndexController')->name('personal.liked.index');
+
+
+    });
+
+    Route::group(['namespace' => 'Comment', 'prefix' => 'comment'], function (){
+
+        Route::get('/', 'IndexController')->name('personal.comment.index');
+
+
+    });
+
+
+});
+
+
 Auth::routes(['verify' => true]);
 
