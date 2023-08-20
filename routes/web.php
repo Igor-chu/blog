@@ -120,6 +120,8 @@ Route::group(['namespace' => 'App\Http\Controllers\Personal', 'prefix' => 'perso
 
         Route::get('/', 'IndexController')->name('personal.liked.index');
 
+        Route::delete('/{post}', 'DeleteController')->name('personal.liked.delete');
+
 
     });
 
