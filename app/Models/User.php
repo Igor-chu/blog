@@ -38,6 +38,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'email',
         'password',
         'role',
+        'message',
     ];
 
     /**
@@ -67,6 +68,11 @@ class User extends Authenticatable implements MustVerifyEmail
 
     public function likedPosts(){
         return $this->belongsToMany(Post::class, 'post_user_likes', 'user_id', 'post_id');
+    }
+
+    public function comments(){
+        return $this->hasMany(Comment::class, 'user_id', 'id');
+
     }
 
 }

@@ -27,7 +27,27 @@
         <div class="container-fluid">
             <!-- Small boxes (Stat box) -->
             <div class="row">
+                <div class="col-12">
+                    <form action="{{route('personal.comment.update', $comment->id)}}" class="w-50" method="POST">
 
+                        @csrf
+                        @method('PATCH')
+
+                        <div class="form-group">
+                            <textarea name="message" class="form-control" id="message"  placeholder="Введите сообщение">{{$comment->message}}</textarea>
+
+                            @error('message')
+                            <div class="text-danger">
+                                {{$message}}
+                            </div>
+                            @enderror
+
+                            <input type="submit" class="btn btn-success mt-3 mr-3" value="Обновить">
+
+                            <a href="{{route('personal.comment.index')}}" class="btn btn-primary mt-3">Назад</a>
+                        </div>
+                    </form>
+                </div>
             </div>
             <!-- /.row -->
         </div><!-- /.container-fluid -->
