@@ -18,8 +18,12 @@ Route::group(['namespace' => 'App\Http\Controllers\Main'], function(){
 
     Route::get('/', 'IndexController')->name('main.index');
 
-    Route::get('/{post}', 'ShowController')->name('main.show');
+});
 
+Route::group(['namespace' => 'App\Http\Controllers\Post', 'prefix' => 'posts'], function(){
+
+    Route::get('/', 'IndexController')->name('post.index');
+    Route::get('/{post}', 'ShowController')->name('post.show');
 
 });
 
