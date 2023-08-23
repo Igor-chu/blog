@@ -39,6 +39,19 @@ Route::group(['namespace' => 'App\Http\Controllers\Post', 'prefix' => 'posts'], 
 
 });
 
+
+Route::group(['namespace' => 'App\Http\Controllers\Category', 'prefix' => 'categories'], function(){
+
+    Route::get('/', 'IndexController')->name('category.index');
+
+    Route::group(['namespace' => 'Post', 'prefix' => '{category}/posts'], function () {
+
+        Route::get('/','IndexController')->name('category.post.index');
+
+    });
+
+});
+
 Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin', 'middleware' => ['auth', 'admin', 'verified']], function () {
 
     Route::group(['namespace' => 'Main'], function(){
