@@ -26,6 +26,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{route('main.index')}}">Блог</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('main.category')}}">Блог</a>
+                    </li>
 
                     <li class="nav-item">
                         @guest()
@@ -39,6 +42,7 @@
 
                 </ul>
 
+                @auth()
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <form action="{{route('logout')}}" method="post">
@@ -47,6 +51,7 @@
                         </form>
                     </li>
                 </ul>
+                @endauth
             </div>
         </nav>
         <div class="edica-landing-header-content">

@@ -31,6 +31,12 @@ Route::group(['namespace' => 'App\Http\Controllers\Post', 'prefix' => 'posts'], 
 
     });
 
+    Route::group(['namespace' => 'Like', 'prefix' => '{post}/likes'], function () {
+
+        Route::post('/','StoreController')->name('post.like.store');
+
+    });
+
 });
 
 Route::group(['namespace' => 'App\Http\Controllers\Admin', 'prefix' => 'admin', 'middleware' => ['auth', 'admin', 'verified']], function () {

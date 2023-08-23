@@ -16,13 +16,13 @@
 
                         <h1 class="m-0 mr-2">{{$post->title}}</h1>
 
-                        <a href="{{route('admin.post.edit', $post->id)}}" class="text-success mr-2">
+                        <a href="{{route('personal.post.edit', $post->id)}}" class="text-success mr-2">
 
                             <i class="fas fa-pencil-alt"></i>
 
                         </a>
 
-                        <form action="{{route('admin.post.delete', $post->id)}}" method="POST">
+                        <form action="{{route('personal.post.delete', $post->id)}}" method="POST">
 
                             @csrf
                             @method('delete')

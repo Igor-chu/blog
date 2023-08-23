@@ -11,6 +11,8 @@ class IndexController extends Controller
     {
         $posts = Post::paginate(3);
 
+//        dd(auth()->user->role);
+
         $randomPosts = Post::get()->random(4);
 
         $likedPosts = Post::withCount('likedUsers')->orderBy('liked_users_count', 'DESC')->get()->take(4);

@@ -46,13 +46,14 @@
                 <li class="nav-item mr-3">
                     <a class="btn btn-outline-warning" href="{{route('main.index')}}">Блог</a>
                 </li>
-
+                @auth()
                 <li class="nav-item">
                     <form action="{{route('logout')}}" method="post">
                         @csrf
                         <input type="submit" class="btn btn-outline-primary" value="Выйти">
                     </form>
                 </li>
+                @endauth
             </ul>
         </div>
     </nav>
